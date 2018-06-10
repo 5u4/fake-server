@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 
 /* get all parsed user input options */
-options = argvParser.arguments()
+options = argvParser.arguments();
 
 /* api routes */
 route.api(app);
