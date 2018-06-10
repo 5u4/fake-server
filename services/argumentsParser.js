@@ -1,3 +1,8 @@
+/**
+ * Parse user input to action (the first non option word), options (word starts with two dashes) and arguments.
+ *
+ * @returns {{_arguments: Array}}
+ */
 const arguments = () => {
     /* get all user input arguments */
     const argv = process.argv;

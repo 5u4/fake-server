@@ -1,10 +1,11 @@
-const api = (app) => {
-    /* a basic get api */
-    app.get('/', (_, res) => res.send({
-        app: 'fake-api-server'
-    }));
-};
+const sampleResponses = require('../apis/responses/sampleResponses.js');
 
-module.exports = {
-    api
-};
+/**
+ * Routes are defined here.
+ *
+ * @type {{api: module.exports.api}}
+ */
+module.exports = {api: function (app) {
+    /* a basic get api to get the app name */
+    app.get('/', (_, response) => response.send(sampleResponses.appName));
+}};
