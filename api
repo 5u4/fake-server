@@ -1,5 +1,6 @@
 const express = require('express');
-const argvParser = require('./argumentsParser.js');
+const argvParser = require('./services/argumentsParser.js');
+const route = require('./routes/route.js');
 
 /* express app */
 const app = express();
@@ -7,10 +8,8 @@ const app = express();
 /* get all parsed user input options */
 options = argvParser.arguments()
 
-/* a basic get api */
-app.get('/', (_, res) => res.send({
-    app: 'fake-api-server'
-}));
+/* api routes */
+route.api(app);
 
 /* serve */
 if (options['_action'] === 'serve') {
