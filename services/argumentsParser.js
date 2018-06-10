@@ -9,7 +9,9 @@ const arguments = () => {
 
     /* construct options */
     let options = {
-        _arguments: []
+        action: null,
+        arguments: [],
+        options: {}
     };
 
     /* build options */
@@ -23,17 +25,17 @@ const arguments = () => {
             let val = argv[i].slice(separator + 1);
 
             /* set value with key */
-            options[argv[i].slice(2, separator)] = val ? val : true;
+            options['options'][argv[i].slice(2, separator)] = val ? val : true;
         }
 
         /* set action if action is not set yet */
-        else if (!options['_action']) {
-            options['_action'] = argv[i];
+        else if (!options['action']) {
+            options['action'] = argv[i];
         }
 
         /* set the rest to arguments */
         else {
-            options['_arguments'].push(argv[i]);
+            options['arguments'].push(argv[i]);
         }
     }
 
