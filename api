@@ -5,6 +5,9 @@ const route = require('./routes/route.js');
 /* express app */
 const app = express();
 
+/* use express.json to parse request */
+app.use(express.json());
+
 /* get all parsed user input options */
 options = argvParser.arguments()
 
